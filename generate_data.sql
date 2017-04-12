@@ -4,6 +4,11 @@ DECLARE
     i BIGINT := 0;
     firstname VARCHAR(100);
 BEGIN
+
+  IF rowcount < 0 THEN
+    RAISE EXCEPTION 'Must generate at least 1 row of data';
+  END IF;
+
   FOR i in 1..rowcount
   LOOP
 
